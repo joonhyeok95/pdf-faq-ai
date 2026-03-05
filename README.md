@@ -21,3 +21,9 @@ gradio 기동 방법
 ```
 py app_gradio.py
 ```
+
+ollama 명령어
+```
+ollama pull all-minilm
+ollama list
+```
