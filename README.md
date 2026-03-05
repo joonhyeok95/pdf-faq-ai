@@ -36,6 +36,8 @@ streamlit run app_streamlit.py
 ```
 py app_gradio.py
 ```
+<img width="1036" height="637" alt="image" src="https://github.com/user-attachments/assets/330d9b81-b28c-4643-a3af-1dbae41dbf14" />
+
 ## Local Embedd
 ollama 명령어
 ```
