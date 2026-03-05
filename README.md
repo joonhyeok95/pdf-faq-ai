@@ -1,4 +1,5 @@
 본 프로젝트는 제미나이 llm연동, 로컬 gpu를 활용하여 임베딩 후 벡터디비에 저장하는 로직을 갖는다.
+langchain 을 활용함
 - LLM(gemini) openapi
 - VectorDB(postgreSQL)
 - Embedding(huggingface/ollama) local 모델 활용
