@@ -3,6 +3,13 @@
 - VectorDB(postgreSQL)
 - Embedding(huggingface/ollama) local 모델 활용
 
+프로젝트를 pull 받은 뒤 .env 파일을 생성하여 정보를 입력한다.
+```
+GOOGLE_API_KEY=
+PGVECTOR_CONNECTION_STRING=
+# PGVECTOR_CONNECTION_STRING=postgresql+psycopg2://myuser:mypassword@localhost:5432/aidb
+```
+
 
 streamlit 기동 방법
 ```
