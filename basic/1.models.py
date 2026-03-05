@@ -1,6 +1,10 @@
+import os
 import google.generativeai as genai
+from dotenv import load_dotenv
 
-genai.configure(api_key="AIzaSyDFoI1EAjTma35bQLOzoBUv2a208v5KLN4")
+load_dotenv()
+
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 for m in genai.list_models():
     if 'generateContent' in m.supported_generation_methods:
         print(m.name) # 여기서 나오는 이름을 그대로 model="명칭"에 넣으시면 됩니다.

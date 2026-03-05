@@ -53,9 +53,14 @@ def main():
             
             # 🚀 LangGraph 워크플로우 생성 및 실행
             app = create_langgraph_workflow(retriever, llm)
+            # config에 recursion_limit 설정 (노드 방문 횟수 제한)
+            config = {"recursion_limit": 10} 
             
             # 그래프 실행 (초기 질문 입력)
-            final_state = app.invoke({"question": prompt})
+            final_state = app.invoke(
+                {"question": prompt, "loop_count": 0}, 
+                config=config
+            )
 
             response = final_state["answer"]
             st.markdown(response)

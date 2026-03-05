@@ -2,7 +2,7 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 # 1. API 키 설정 (환경 변수로 관리하는 것을 추천합니다)
-os.environ["GOOGLE_API_KEY"] = "AIzaSyAEMUqW5Kva9GN9EcmqFIZ92PYtWSRIZRQ"
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 # 2. 모델 초기화 (무료 티어 모델: gemini-1.5-flash 권장)
 # flash 모델이 속도가 빠르고 무료 토큰 한도가 넉넉합니다.

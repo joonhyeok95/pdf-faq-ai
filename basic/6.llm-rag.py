@@ -11,8 +11,6 @@ from langchain_core.runnables import RunnablePassthrough
 
 load_dotenv()
 
-# 환경 변수 설정 (본인의 API 키 입력)
-# os.environ["GOOGLE_API_KEY"] = "AIzaSyAEMUqW5Kva9GN9EcmqFIZ92PYtWSRIZRQ"
 COLLECTION_NAME = "local_tech_docs"
 
 def main():
