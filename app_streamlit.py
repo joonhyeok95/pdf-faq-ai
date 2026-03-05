@@ -17,6 +17,7 @@ load_dotenv()
 # 1. 환경 설정 및 상수
 os.environ["TRANSFORMERS_VERIFY_SCHEDULED_REMOVAL"] = "False"
 COLLECTION_NAME = "streamlit_pdf_rag"
+PGVECTOR_CONNECTION_STRING = os.getenv("PGVECTOR_CONNECTION_STRING")
 warnings.filterwarnings("ignore")
 
 # 2. 모델 로딩 함수 (캐싱 적용으로 매번 로드 방지)
@@ -90,6 +91,7 @@ def main():
             with st.spinner("문서에서 답변을 찾는 중..."):
                 # 벡터 DB 연결
                 db = PGVector(
+                    connection_string=PGVECTOR_CONNECTION_STRING,
                     collection_name=COLLECTION_NAME,
                     embedding_function=embeddings
                 )

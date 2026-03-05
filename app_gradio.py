@@ -17,6 +17,7 @@ load_dotenv()
 # 1. 환경 설정 및 보안 패치
 os.environ["TRANSFORMERS_VERIFY_SCHEDULED_REMOVAL"] = "False"
 COLLECTION_NAME = "gradio_pdf_rag"
+PGVECTOR_CONNECTION_STRING = os.getenv("PGVECTOR_CONNECTION_STRING")
 warnings.filterwarnings("ignore")
 
 # 글로벌 변수 선언 (나중에 main에서 할당)
@@ -28,6 +29,7 @@ def process_pdf(file):
     loader = PyPDFLoader(file.name)
     docs = loader.load_and_split(RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=100))
     PGVector.from_documents(
+        connection_string=PGVECTOR_CONNECTION_STRING,
         embedding=embeddings,
         documents=docs,
         collection_name=COLLECTION_NAME,
@@ -37,7 +39,9 @@ def process_pdf(file):
     return f"✅ {len(docs)}개 조각 학습 완료!"
 
 def predict(message, history):
-    db = PGVector(collection_name=COLLECTION_NAME, embedding_function=embeddings)
+    db = PGVector(collection_name=COLLECTION_NAME, 
+                  embedding_function=embeddings, 
+                  connection_string=PGVECTOR_CONNECTION_STRING)
     retriever = db.as_retriever(search_kwargs={"k": 3})
     prompt = ChatPromptTemplate.from_template("Context: {context}\nQuestion: {question}\nAnswer:")
     chain = ({"context": retriever, "question": RunnablePassthrough()} | prompt | llm | StrOutputParser())
