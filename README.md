@@ -10,6 +10,20 @@ PGVECTOR_CONNECTION_STRING=
 # PGVECTOR_CONNECTION_STRING=postgresql+psycopg2://myuser:mypassword@localhost:5432/aidb
 ```
 
+## vectorDB 세팅
+postgreSQL 에서 PGVector 플러그인이 존재
+내장된 docker 이미지를 활용한다.(/postgresql/docker-compose.yml)
+
+이후 아래 명령어를 수행
+```
+-- db 접속
+docker exec -it pgvector_db psql -U myuser -d aidb
+-- DB 접속 후 실행
+CREATE EXTENSION vector;
+-- 설치 확인 (버전이 나오면 성공!)
+SELECT * FROM pg_extension WHERE extname = 'vector';
+```
+
 
 streamlit 기동 방법
 ```
