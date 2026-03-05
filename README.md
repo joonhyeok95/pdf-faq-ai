@@ -29,11 +29,15 @@ SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
 streamlit run app_streamlit.py
 ```
+<img width="1078" height="946" alt="image" src="https://github.com/user-attachments/assets/3c96834b-558a-4a3f-8be2-092a14dc5371" />
+
 
 ### gradio 기동 방법
 ```
 py app_gradio.py
 ```
+<img width="1036" height="637" alt="image" src="https://github.com/user-attachments/assets/330d9b81-b28c-4643-a3af-1dbae41dbf14" />
+
 ## Local Embedd
 ollama 명령어
 ```
