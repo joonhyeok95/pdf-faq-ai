@@ -19,7 +19,7 @@ PGVECTOR_CONNECTION_STRING=
 # PGVECTOR_CONNECTION_STRING=postgresql+psycopg2://myuser:mypassword@localhost:5432/aidb
 ```
 
-## vectorDB 세팅
+## vectorDB Setting
 postgreSQL 에서 PGVector 플러그인이 존재
 내장된 docker 이미지를 활용한다.(/postgresql/docker-compose.yml)
 
@@ -33,21 +33,20 @@ CREATE EXTENSION vector;
 SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
 
-## UI 툴
-### streamlit 기동 방법
+## UI Tools
+### 1.streamlit 기동 방법
 ```
 streamlit run app_streamlit.py
 ```
 <img width="1078" height="946" alt="image" src="https://github.com/user-attachments/assets/3c96834b-558a-4a3f-8be2-092a14dc5371" />
 
-
-### gradio 기동 방법
+### 2.gradio 기동 방법
 ```
 py app_gradio.py
 ```
 <img width="1036" height="637" alt="image" src="https://github.com/user-attachments/assets/330d9b81-b28c-4643-a3af-1dbae41dbf14" />
 
-## Local Embedd
+## Local Embedd (Ollama)
 ollama 명령어
 ```
 ollama pull all-minilm
