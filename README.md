@@ -2,7 +2,7 @@
 - LLM(gemini) openapi
 - VectorDB(postgreSQL)
 - Embedding(huggingface/ollama) local 모델 활용
-
+## 환경변수
 프로젝트를 pull 받은 뒤 .env 파일을 생성하여 정보를 입력한다.
 ```
 GOOGLE_API_KEY=
@@ -24,18 +24,17 @@ CREATE EXTENSION vector;
 SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
 
-
-streamlit 기동 방법
+## UI 툴
+### streamlit 기동 방법
 ```
 streamlit run app_streamlit.py
 ```
 
-
-gradio 기동 방법
+### gradio 기동 방법
 ```
 py app_gradio.py
 ```
-
+## Local Embedd
 ollama 명령어
 ```
 ollama pull all-minilm
