@@ -1,8 +1,16 @@
-본 프로젝트는 제미나이 llm연동, 로컬 gpu를 활용하여 임베딩 후 벡터디비에 저장하는 로직을 갖는다.
-langchain 을 활용함
+본 프로젝트는 제미나이 llm연동, 로컬 gpu를 활용하여 임베딩 후 벡터디비에 저장하는 로직을 갖는다.(langchain활용)
 - LLM(gemini) openapi
 - VectorDB(postgreSQL)
 - Embedding(huggingface/ollama) local 모델 활용
+
+## version
+- python: 3.12
+- gemini model: gemini-3.1-flash-lite-preview
+- huggingface embedd model: bge-m3
+- ollama embedd model: all-minilm
+- postgresql 16, pgvector 0.8.2
+
+
 ## 환경변수
 프로젝트를 pull 받은 뒤 .env 파일을 생성하여 정보를 입력한다.
 ```
