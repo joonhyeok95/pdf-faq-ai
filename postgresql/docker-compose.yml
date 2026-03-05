@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  db:
+    image: pgvector/pgvector:pg16 # pgvector가 내장된 Postgres 16 이미지
+    container_name: pgvector_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=aidb
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
