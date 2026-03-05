@@ -29,6 +29,8 @@ SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
 streamlit run app_streamlit.py
 ```
+<img width="1078" height="946" alt="image" src="https://github.com/user-attachments/assets/3c96834b-558a-4a3f-8be2-092a14dc5371" />
+
 
 ### gradio 기동 방법
 ```
