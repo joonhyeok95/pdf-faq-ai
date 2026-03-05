@@ -6,7 +6,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 # 분리된 모듈 임포트
 from core.model import get_models
 from core.database import get_vector_db, save_to_vector_db
-from app.chain import create_rag_chain
+from app.chain import create_langgraph_workflow
 
 load_dotenv()
 
@@ -50,9 +50,14 @@ def main():
         with st.chat_message("assistant"):
             db = get_vector_db(embeddings)
             retriever = db.as_retriever(search_kwargs={"k": 3})
-            chain = create_rag_chain(retriever, llm)
             
-            response = chain.invoke(prompt)
+            # 🚀 LangGraph 워크플로우 생성 및 실행
+            app = create_langgraph_workflow(retriever, llm)
+            
+            # 그래프 실행 (초기 질문 입력)
+            final_state = app.invoke({"question": prompt})
+
+            response = final_state["answer"]
             st.markdown(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
 
